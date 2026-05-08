@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday ZURAAAAA ❤️</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ================= RESET ================= */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0f0f0f;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    section{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      padding:40px 20px;
+      text-align:center;
+      position:relative;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+      url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop')
+      center/cover no-repeat;
+    }
+
+    .hero h1{
+      font-size:4rem;
+      animation:fadeIn 2s ease;
+    }
+
+    .hero p{
+      margin-top:15px;
+      font-size:1.2rem;
+      max-width:750px;
+      opacity:0.9;
+      line-height:1.8;
+      animation:fadeIn 3s ease;
+    }
+
+    /* ================= BUTTON ================= */
+
+    .btn{
+      margin-top:30px;
+      padding:14px 34px;
+      border:none;
+      border-radius:50px;
+      background:#ff4f81;
+      color:white;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 0 25px rgba(255,79,129,0.5);
+      font-weight:600;
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.05);
+      background:#ff2d6f;
+    }
+
+    /* ================= TITLES ================= */
+
+    .title{
+      font-size:3rem;
+      margin-bottom:25px;
+      color:#ff77a9;
+    }
+
+    .message{
+      max-width:850px;
+      font-size:1.1rem;
+      line-height:2;
+      opacity:0.9;
+    }
+
+    /* ================= CARDS ================= */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:25px;
+      width:100%;
+      max-width:1050px;
+      margin-top:40px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(12px);
+      border-radius:25px;
+      padding:30px;
+      transition:0.4s;
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      background:rgba(255,255,255,0.12);
+    }
+
+    .card h3{
+      color:#ff77a9;
+      margin-bottom:12px;
+      font-size:1.3rem;
+    }
+
+    /* ================= SLIDESHOW ================= */
+
+    .slideshow-container{
+      position:relative;
+      width:90%;
+      max-width:950px;
+      height:540px;
+
+      overflow:hidden;
+      border-radius:30px;
+
+      background:#111;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      box-shadow:
+      0 15px 35px rgba(0,0,0,0.55),
+      0 0 25px rgba(255,79,129,0.15);
+
+      margin-top:35px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* PERFECT IMAGE FIT */
+
+    .slide{
+      position:absolute;
+      width:100%;
+      height:100%;
+
+      object-fit:contain;
+
+      background:#111;
+
+      padding:10px;
+
+      opacity:0;
+      transition:opacity 1s ease-in-out;
+    }
+
+    .slide.active{
+      opacity:1;
+    }
+
+    /* ================= SLIDE BUTTONS ================= */
+
+    .slide-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,0.45);
+      border:none;
+      color:white;
+      font-size:2rem;
+      width:55px;
+      height:55px;
+      cursor:pointer;
+      border-radius:50%;
+      transition:0.3s;
+      z-index:5;
+      backdrop-filter:blur(10px);
+    }
+
+    .slide-btn:hover{
+      background:rgba(255,79,129,0.85);
+      transform:translateY(-50%) scale(1.08);
+    }
+
+    .prev{
+      left:20px;
+    }
+
+    .next{
+      right:20px;
+    }
+
+    /* ================= TIMELINE ================= */
+
+    .timeline{
+      max-width:900px;
+      margin-top:40px;
+    }
+
+    .timeline-item{
+      background:rgba(255,255,255,0.06);
+      padding:22px;
+      border-left:4px solid #ff4f81;
+      margin-bottom:20px;
+      border-radius:14px;
+      text-align:left;
+      backdrop-filter:blur(10px);
+    }
+
+    .timeline-item h3{
+      margin-bottom:8px;
+      color:#ff77a9;
+    }
+
+    /* ================= SURPRISE ================= */
+
+    .surprise-box{
+      margin-top:35px;
+      display:none;
+      animation:fadeIn 1s ease;
+    }
+
+    .surprise-box h2{
+      color:#ff77a9;
+      margin-bottom:15px;
+      font-size:2rem;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      padding:30px;
+      text-align:center;
+      background:#080808;
+      color:#aaa;
+      font-size:0.95rem;
+    }
+
+    /* ================= FLOATING HEARTS ================= */
+
+    .hearts span{
+      position:absolute;
+      bottom:-50px;
+      color:#ff77a9;
+      font-size:20px;
+      animation:float 10s linear infinite;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+
+      20%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:2.5rem;
+      }
+
+      .title{
+        font-size:2.2rem;
+      }
+
+      .message{
+        font-size:1rem;
+      }
+
+      .slideshow-container{
+        width:95%;
+        height:380px;
+      }
+
+      .slide-btn{
+        width:45px;
+        height:45px;
+        font-size:1.5rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- FLOATING HEARTS -->
+  <div class="hearts">
+    <span style="left:10%; animation-delay:0s;">❤</span>
+    <span style="left:25%; animation-delay:2s;">❤</span>
+    <span style="left:40%; animation-delay:4s;">❤</span>
+    <span style="left:55%; animation-delay:1s;">❤</span>
+    <span style="left:70%; animation-delay:5s;">❤</span>
+    <span style="left:85%; animation-delay:3s;">❤</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <h1>Happy Birthday, Special Girl ZURAAAAAAA ❤️</h1>
+
+    <p>
+      Today is all about you.
+      This small website is made specially to remind you
+      how important and beautiful you are to someone.
+    </p>
+
+    <button class="btn"
+      onclick="document.getElementById('message').scrollIntoView()">
+      Open Your Surprise ✨
+    </button>
+
+  </section>
+
+  <!-- MESSAGE -->
+  <section id="message">
+
+    <h2 class="title">A Message For You 💌</h2>
+
+    <p class="message">
+      Happy Birthday to the most special person in my life.
+      I just want you to know that meeting you was one of the
+      best things that ever happened to me.
+
+      No matter where life takes us, I hope you always smile,
+      stay happy, and continue being the amazing person you are.
+
+      Thank you for every moment, every laugh, and every memory.
+
+      You truly deserve all the happiness in the world today and always ❤️
+    </p>
+
+  </section>
+
+  <!-- SPECIAL -->
+  <section>
+
+    <h2 class="title">Why You're Special ✨</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Your Smile 😊</h3>
+        <p>Your smile can make even the worst days feel better.</p>
+      </div>
+
+      <div class="card">
+        <h3>Your Kindness 🌸</h3>
+        <p>You care about people in such a beautiful way.</p>
+      </div>
+
+      <div class="card">
+        <h3>Your Presence 💖</h3>
+        <p>Just talking to you already makes everything feel lighter.</p>
+      </div>
+
+      <div class="card">
+        <h3>Your Personality 🌙</h3>
+        <p>You are genuinely one of the most unforgettable people.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MEMORIES -->
+  <section>
+
+    <h2 class="title">Memories 📸</h2>
+
+    <div class="slideshow-container">
+
+      <img class="slide active"
+      src="https://i.ibb.co/4wN22QJp/Whats-App-Image-2026-05-08-at-12-28-59-PM.jpg"
+      alt="memory1">
+
+      <img class="slide"
+      src="https://i.ibb.co/fdVRZrmq/Whats-App-Image-2026-05-08-at-12-29-01-PM-1.jpg"
+      alt="memory2">
+
+      <img class="slide"
+      src="https://i.ibb.co/8gtD6r4K/Whats-App-Image-2026-05-08-at-12-29-00-PM.jpg"
+      alt="memory3">
+
+      <img class="slide"
+      src="https://i.ibb.co/TDvx0s0F/Whats-App-Image-2026-05-08-at-12-28-59-PM-2.jpg"
+      alt="memory4">
+
+      <img class="slide"
+      src="https://i.ibb.co/6JgmXD9y/Whats-App-Image-2026-05-08-at-12-29-00-PM-1.jpg"
+      alt="memory5">
+
+      <img class="slide"
+      src="https://i.ibb.co/sJMp1twr/Whats-App-Image-2026-05-08-at-12-29-00-PM-2.jpg"
+      alt="memory6">
+
+      <!-- BUTTONS -->
+      <button class="slide-btn prev"
+      onclick="changeSlide(-1)">❮</button>
+
+      <button class="slide-btn next"
+      onclick="changeSlide(1)">❯</button>
+
+    </div>
+
+  </section>
+
+  <!-- STORY -->
+  <section>
+
+    <h2 class="title">Our Story 🌷</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>The First Time We Met</h3>
+        <p>A moment I still remember clearly.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>The Fun Conversations</h3>
+        <p>Every conversation with you became my favourite part of the day.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Today ❤️</h3>
+        <p>Today is your special day, and you deserve all the love and happiness.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SURPRISE -->
+  <section>
+
+    <h2 class="title">One Last Surprise 🎁</h2>
+
+    <button class="btn" onclick="showSurprise()">
+      Click Me 💖
+    </button>
+
+    <div class="surprise-box" id="surpriseBox">
+
+      <h2>You Mean A Lot To Me ❤️</h2>
+
+      <p class="message">
+        No matter how I try to explain it, it always comes back to you. You’re the most important person to me, and that                                        	truth runs deeper than anything I’ve ever felt.
+        
+      Happy Birthday once again beautiful 🌸
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    Made with ❤️ specially for her birthday.
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+
+    function showSurprise(){
+      document.getElementById('surpriseBox').style.display='block';
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index){
+
+      slides.forEach(slide => {
+        slide.classList.remove('active');
+      });
+
+      if(index >= slides.length){
+        currentSlide = 0;
+      }
+      else if(index < 0){
+        currentSlide = slides.length - 1;
+      }
+      else{
+        currentSlide = index;
+      }
+
+      slides[currentSlide].classList.add('active');
+    }
+
+    function changeSlide(direction){
+      showSlide(currentSlide + direction);
+    }
+
+    setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 4000);
+
+  </script>
+
+</body>
+</html>
